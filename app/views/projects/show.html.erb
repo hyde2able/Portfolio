@@ -1,3 +1,10 @@
+<% content_for :header do %>
+    <%= render "layouts/breadcrumb", breadcrumb: {
+        "#{@project.title}": project_path(@project)
+        } %>
+<% end %>
+
+
 <div class="jumbotron text-center">
   <h2><%= @project.title %></h2>
   <img src="<%= @project.image %>">
@@ -6,6 +13,11 @@
   <p>VIEW: <%= @project.view %></p>
   <p>GOOD: <%= @project.good %></p>
 
-  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <% if user_signed_in? && @project.user == current_user %>
+    <p>
+      <%= link_to 'Edit', edit_project_path(@project) %>
+      <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>         
+  <% end %>
   <%= link_to 'Back', projects_path %>
 </div>

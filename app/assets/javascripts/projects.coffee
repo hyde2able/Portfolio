@@ -44,7 +44,7 @@ $(".projects.new").ready ->
 $(".projects.index").ready ->
     $(".projectsList").masonry
         itemSelector: ".project",
-        gutterWidth: 5,
+        gutterWidth: 10,
         columnWidth: 320,
         isAnimated: true,
         animationOptions: {
@@ -56,4 +56,6 @@ $(".projects.index").ready ->
     $(".project").each (i) ->
         $(this).delay(i * 100).fadeIn(1000)
 
+    $(".link").on "click", ->
+        $(this).find(".thisLink").toggle()
 

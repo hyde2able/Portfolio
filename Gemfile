@@ -26,8 +26,7 @@ gem 'omniauth-facebook' # => Facebookログイン
 # => for youtubeAPI
 gem 'youtube_it', '~> 2.4.0'
 
-# => ページング処理
-#gem 'kaminari'
+gem 'kaminari'  # => ページング処理
 
 # => CSS framework
 #gem 'therubyracer',  platforms: :ruby

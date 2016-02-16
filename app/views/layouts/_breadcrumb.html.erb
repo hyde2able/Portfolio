@@ -1,0 +1,10 @@
+<ul class="breadcrumb hidden-xs">
+    <li>
+        <%= link_to root_path do %>
+            <i class="material-icons" style="position:relative; top: 7px">home</i> HOME
+        <% end %>
+    </li>
+    <% breadcrumb.each do |page, url| %>
+        <li><%= link_to page, url %></li>
+    <% end %>
+</ul>

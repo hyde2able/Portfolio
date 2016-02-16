@@ -1,3 +1,9 @@
+<% content_for :header do %>
+    <%= render "layouts/breadcrumb", breadcrumb: {
+        "ポートフォリオ登録": new_project_path
+        } %>
+<% end %>
+
 <div class="jumbotron">
     <h3 class="text-center">ポートフォリオを登録する</h3>
     <%= render 'form' %>

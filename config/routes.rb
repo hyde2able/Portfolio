@@ -5,6 +5,12 @@ Rails.application.routes.draw do
 
 
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout"}, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+
+
+  namespace :api do
+    resources :projects
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

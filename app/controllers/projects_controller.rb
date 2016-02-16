@@ -5,12 +5,14 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.page(params[:page]).per(10)
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project.view += 1
+    @project.save
   end
 
   # GET /projects/new
@@ -32,8 +34,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+        format.html { redirect_to root_path, notice: "ポートフォリオが登録されました。" }
+        format.json { render :index, status: :created, location: @project }
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -46,7 +48,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'ポートフォリオが更新されました。' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: 'ポートフォリオが削除されました。' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,13 @@
-<h1>Editing Project</h1>
+<% content_for :header do %>
+    <%= render "layouts/breadcrumb", breadcrumb: {
+        "ポートフォリオ編集": edit_project_path
+        } %>
+<% end %>
 
-<%= render 'form' %>
+<div class="jumbotron text-center">
+    <h1>ポートフォリオを編集する</h1>
+    <%= render 'form' %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+    <%= link_to 'Show', @project %> |
+    <%= link_to 'Back', projects_path %>
+</div>

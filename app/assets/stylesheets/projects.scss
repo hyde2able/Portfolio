@@ -20,14 +20,112 @@
 }
 
 .projects.index {
-    .projects {
+    .projectsList {
         .project {
+            margin-bottom: 10px;
             position: relative;
             background: #fff;
+            overflow: hidden;
+            width: 320px;
+            box-shadow: 1px 1px 2px #e6e6e6;
+            padding: 3px;
+            border: 2px solid #ccc;
             img {
-                width: 320px;
+                display: block;
+                position: relative;
                 padding: 0;
                 margin: 0;
+            }
+            .mask {
+                width: 320px;
+                position: absolute;
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.6); 
+                -webkit-transition: .3s;
+                transition: .3s;
+                opacity: 0;
+                h2 {
+                    text-transform: uppercase;
+                    text-align: center;
+                    position: relative;
+                    font-size: 17px;
+                    padding: 10px;
+
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+                    background: transparent;
+                    margin: 20px 40px 0px 40px;
+                    color: #fff;
+                    opacity: 0;
+                }
+                p {
+                    font-size: 12px;
+                    position: relative;
+                    padding: 10px 20px 20px;
+                    text-align: center;
+                    color: #fff;
+                    opacity: 0;
+                }
+                a {
+                    text-align: center;
+                }
+                .moreLink {
+                    position: absolute;
+                    bottom: 40px;
+                    left: 85px;
+                    width: 150px;
+                }
+                .created_at {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 5px;
+                    font-size: 15px;
+                    color: #ccc;
+                    font-weight: bold;
+                    padding: 10px;
+                }
+                .link {
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    i {
+                        padding: 5px;
+                        background: #fff;
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+                    .thisLink {
+                        padding: 5px;
+                        position: relative;
+                        bottom: 40px;
+                        background: #fff;
+                        right: 0;
+                        display: none;
+                    }
+                }
+            }
+            &:hover {
+                .mask {
+                    opacity:1;
+                }
+                h2, p, a {
+                    opacity: 1;
+                }
+                img {
+                    opacity: 0;
+                }
+            }
+            .views {
+                font-weight: bold;
+                font-size: 15px;
+                color: #333;
+                position: relative;
+                top: 5px;
+                left: 4px;
+            }
+            .projectFotter {
+                height: 40px;
             }
         }
     }

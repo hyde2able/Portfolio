@@ -1,0 +1,61 @@
+<%= form_for(@project, html: {:class => "form-horizontal clearfix"}) do |f| %>
+
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @project.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="yt_or_url col-md-offset-2 col-md-10">
+    <h4>
+      <span class="urlType selected" id="url" data-class="url">URL</span>
+      <span style="font-size:13px">or</span>
+      <span class="urlType" id="yt" data-class="yt">Youtube</span>
+    </h4>
+  </div>
+
+  <div class="form-group">
+    <label for="projectUrl" class="col-md-2 control-label">URL</label>
+    <div class="col-md-10">
+      <%= f.text_field :url, class: "form-control", id: "projectUrl", placeholder: "http://www....." %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.hidden_field :youtube, id: "isYoutube", value: false %>
+  </div>
+
+  <div class="form-group text-center">
+    <img src="" id="projectImage" style="display:none">
+    <%= f.hidden_field :image, class: 'form-control', id: "projectImagePath" %>
+  </div>
+
+  <div class="form-group">
+    <label for="projectTitle" class="col-md-2 control-label">タイトル</label>
+    <div class="col-md-10">
+      <%= f.text_field :title, class: "form-control", id: "projectTitle", placeholder: "Portfolio" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="projectDescription" class="col-md-2 control-label">概要</label>
+    <div class="col-md-10">
+      <%= f.text_area :description, class: "form-control", id: "projectDescription", rows: 3, placeholder: "sample" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-10 col-md-offset-2">
+      <%= f.submit "登録する", class: "btn btn-success text-center" %>
+    </div>
+  </div>
+
+
+<% end %>

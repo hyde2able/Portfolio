@@ -1,0 +1,11 @@
+<div class="jumbotron text-center">
+  <h2><%= @project.title %></h2>
+  <img src="<%= @project.image %>">
+  <p><%= @project.description %></p>
+  <p>URL: <%= @project.url %></p>
+  <p>VIEW: <%= @project.view %></p>
+  <p>GOOD: <%= @project.good %></p>
+
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+</div>

@@ -1,0 +1,34 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.projects.new {
+    h1 {
+        margin-bottom: 20px;
+    }
+    form {
+        .selected {
+            border-bottom: 2px solid #F06292;
+        }
+        .urlType {
+            cursor: pointer;
+        }
+        img {
+            height: 300px;
+        }
+    }
+}
+
+.projects.index {
+    .projects {
+        .project {
+            position: relative;
+            background: #fff;
+            img {
+                width: 320px;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}

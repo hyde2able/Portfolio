@@ -2,13 +2,32 @@
 <html>
 <head>
   <title>Portfolio</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 </head>
-<body>
+<body class="<%= "#{controller_name} #{action_name}" %>">
+    <div class="contariner">
+        <div class="header">
+            <%= render 'layouts/header' %>
+        </div>
 
-<%= yield %>
+        <div class="main">
+            <div class="col-sm-12 col-md-offset-2 col-md-8">
+                <% if notice %>
+                    <div class="alert alert-dismissible alert-info">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <%= notice %>
+                    </div>
+                <% end %>
+                <%= yield %>
+            </div>
+        </div>
 
+        <div class="footer">
+
+        </div>
+    </div>
 </body>
 </html>

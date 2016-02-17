@@ -20,7 +20,7 @@ class Base < Grape::API
       begin
         @project = Project.find(params[:id])
       rescue
-        error!("404 NotFound", 404) unless @project
+        error!("404 NotFound", 404)
       end
     end
 
@@ -43,7 +43,7 @@ class Base < Grape::API
       begin
         @project = Project.find(params[:id])
       rescue
-        error!("404 NotFound", 404) unless @project
+        error!("404 NotFound", 404)
       end
       @project.destroy
     end

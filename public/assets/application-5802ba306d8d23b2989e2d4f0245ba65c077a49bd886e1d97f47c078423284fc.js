@@ -48575,6 +48575,89 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
 
 
 
+(function() {
+  $(".projects.new").ready(function() {
+    var image_complement, selectedType;
+    selectedType = "url";
+    $(".urlType").on("click", function() {
+      selectedType = $(this).attr('data-class');
+      if (selectedType === "url") {
+        $("#yt").removeClass("selected");
+        $(this).addClass("selected");
+        $("#projectUrl").attr("placeholder", "http://www...");
+        return $("#isYoutube").val(false);
+      } else if (selectedType === "yt") {
+        $("#url").removeClass("selected");
+        $(this).addClass('selected');
+        $("#projectUrl").attr("placeholder", "https://www.youtube.com/watch?v=...");
+        return $("#isYoutube").val(true);
+      }
+    });
+    $("#projectUrl").on("change", function() {
+      var url, v;
+      if (selectedType === "url") {
+        url = "http://capture.heartrails.com/320x300/shorten?" + $(this).val();
+      } else if (selectedType === "yt") {
+        if ($(this).val().match(/www.youtube.com\/watch?v=/)) {
+          return;
+        }
+        if ($(this).val().match(/&/)) {
+          v = $(this).val().match(/v=(.+?)&/)[1];
+        } else {
+          v = $(this).val().match(/v=(.+)/)[1];
+        }
+        url = "https://i.ytimg.com/vi/" + v + "/mqdefault.jpg";
+      }
+      return image_complement(url);
+    });
+    return image_complement = function(url) {
+      $("#projectImage").attr("src", url);
+      $("#projectImagePath").val(url);
+      return $("#projectImage").show();
+    };
+  });
+
+  $(".projects.index").ready(function() {
+    $(".projectsList").masonry({
+      itemSelector: ".project",
+      gutterWidth: 10,
+      columnWidth: 320,
+      isAnimated: true,
+      isFitWidth: true,
+      animationOptions: {
+        duration: 500,
+        easing: 'swing'
+      }
+    });
+    $(".project").hide();
+    $(".project").each(function(i) {
+      return $(this).delay(i * 100).fadeIn(1000);
+    });
+    return $(".link").on("click", function() {
+      return $(this).find(".thisLink").toggle();
+    });
+  });
+
+  $(".projects.new, .projects.edit").ready(function() {
+    var j, len, ref, results, tag;
+    $("#projectTags").tagit({
+      fieldName: "project[tag_list]",
+      singleField: true,
+      allowSpaces: true,
+      availableTags: gon.available_tags
+    });
+    if (gon.project_tags != null) {
+      ref = gon.project_tags;
+      results = [];
+      for (j = 0, len = ref.length; j < len; j++) {
+        tag = ref[j];
+        results.push($("#project-tags").tagit('createTag', tag));
+      }
+      return results;
+    }
+  });
+
+}).call(this);
 /**
  * jQuery Masonry v2.1.08
  * A dynamic layout plugin for jQuery
@@ -49082,89 +49165,6 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
 
 
 }).call(this);
-(function() {
-  $(".projects.new").ready(function() {
-    var image_complement, selectedType;
-    selectedType = "url";
-    $(".urlType").on("click", function() {
-      selectedType = $(this).attr('data-class');
-      if (selectedType === "url") {
-        $("#yt").removeClass("selected");
-        $(this).addClass("selected");
-        $("#projectUrl").attr("placeholder", "http://www...");
-        return $("#isYoutube").val(false);
-      } else if (selectedType === "yt") {
-        $("#url").removeClass("selected");
-        $(this).addClass('selected');
-        $("#projectUrl").attr("placeholder", "https://www.youtube.com/watch?v=...");
-        return $("#isYoutube").val(true);
-      }
-    });
-    $("#projectUrl").on("change", function() {
-      var url, v;
-      if (selectedType === "url") {
-        url = "http://capture.heartrails.com/320x300/shorten?" + $(this).val();
-      } else if (selectedType === "yt") {
-        if ($(this).val().match(/www.youtube.com\/watch?v=/)) {
-          return;
-        }
-        if ($(this).val().match(/&/)) {
-          v = $(this).val().match(/v=(.+?)&/)[1];
-        } else {
-          v = $(this).val().match(/v=(.+)/)[1];
-        }
-        url = "https://i.ytimg.com/vi/" + v + "/mqdefault.jpg";
-      }
-      return image_complement(url);
-    });
-    return image_complement = function(url) {
-      $("#projectImage").attr("src", url);
-      $("#projectImagePath").val(url);
-      return $("#projectImage").show();
-    };
-  });
-
-  $(".projects.index").ready(function() {
-    $(".projectsList").masonry({
-      itemSelector: ".project",
-      gutterWidth: 10,
-      columnWidth: 320,
-      isAnimated: true,
-      isFitWidth: true,
-      animationOptions: {
-        duration: 500,
-        easing: 'swing'
-      }
-    });
-    $(".project").hide();
-    $(".project").each(function(i) {
-      return $(this).delay(i * 100).fadeIn(1000);
-    });
-    return $(".link").on("click", function() {
-      return $(this).find(".thisLink").toggle();
-    });
-  });
-
-  $(".projects.new, .projects.edit").ready(function() {
-    var j, len, ref, results, tag;
-    $("#projectTags").tagit({
-      fieldName: "project[tag_list]",
-      singleField: true,
-      allowSpaces: true,
-      availableTags: gon.available_tags
-    });
-    if (gon.project_tags != null) {
-      ref = gon.project_tags;
-      results = [];
-      for (j = 0, len = ref.length; j < len; j++) {
-        tag = ref[j];
-        results.push($("#project-tags").tagit('createTag', tag));
-      }
-      return results;
-    }
-  });
-
-}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -49177,6 +49177,7 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 
 
 

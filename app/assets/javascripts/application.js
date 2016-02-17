@@ -18,6 +18,7 @@
 //= require tag-it
 //= require bootstrap-material-design
 //= require bootstrap-sprockets
+//= require projects
 //= require masonry/jquery.masonry
 //= require_tree .
 

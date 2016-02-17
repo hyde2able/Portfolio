@@ -1,0 +1,8 @@
+<div class="project" style="height: 200px">
+    <h2 class="text-center" style="font-size:17px;">人気なタグ</h2>
+    <% tags.each do |tag| %>
+        <p style="margin: 5px 1px; display: inline-block"><a href="tag/<%= tag %>">
+            <span class="label label-warning" style="padding: 5px">#<%= tag %></span>
+        </a></p>
+    <% end %>
+</div>

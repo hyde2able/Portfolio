@@ -86,11 +86,17 @@
     }
 }
 
+.projects.new, .projects.edit {
+    .form-control:focus {
+        padding: 12px;
+    }
+}
+
 .projects.index, .projects.tag {
     .projectsList {
         margin: 0 auto;
         .project {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             position: relative;
             background: #fff;
             overflow: hidden;
@@ -135,12 +141,15 @@
                     color: #fff;
                     opacity: 0;
                 }
+                p.true {
+                    display: none;
+                }
                 a {
                     text-align: center;
                 }
                 .moreLink {
                     position: absolute;
-                    bottom: 40px;
+                    bottom: 45px;
                     left: 85px;
                     width: 150px;
                 }
@@ -180,7 +189,7 @@
                 h2, p, a {
                     opacity: 1;
                 }
-                img {
+                img.projectImage {
                     opacity: 0;
                 }
             }
@@ -188,12 +197,40 @@
                 font-weight: bold;
                 font-size: 15px;
                 color: #333;
-                position: relative;
-                top: 5px;
-                left: 4px;
+                position: absolute;
+                bottom: 40px;
+                left: 10px;
             }
-            .projectFotter {
-                height: 40px;
+            .comments {
+                position: absolute;
+                font-weight: bold;
+                bottom: 40px;
+                right: 60px;
+            }
+            .thumb {
+                position: absolute;
+                font-weight: bold;
+                color: #222;
+                bottom: 40px;
+                right: 5px;
+            }
+            .panel-footer {
+                img {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: 4px;
+                    left: 10px;
+                    border: 1px solid #fff;
+                }
+                .username {
+                    padding-left: 30px;
+                    font-size: 12px;
+                    color: #333;
+                    position: relative;
+                    bottom: 3px;
+                }
             }
         }
     }

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'users/index'
+
+  get 'users/show'
+
   resources :projects do
     resources :comments, only: [:create, :destroy]
   end

@@ -1,16 +1,28 @@
+<% content_for :header do %>
+    <div class="bg" style="background-image: url(<%= asset_path "bg.jpeg" %>);">
+      <h3>あなたのポートフォリオを乗せて</h3>
+      <p>評価を得て、その場でイシューを立てよう</p>
+    </div>
+<% end %>
+
 <h2 class="text-center">ポートフォリオ一覧</h2>
 
 <div class="row" style="width: 100%;margin:0 auto">
   <div class="projectsList">
-    <% @projects.each do |project| %>
+    <% @projects.each_with_index do |project, i| %>
+
+      <% if i == @rand %>
+        <%= render "layouts/tag_cloud", tags: @tags %>
+      <% end %>
+      
       <% height = (project.youtube) ? 180 : 300 %>
 
-      <div class="project" style="height: <%= height+40 %>px"> 
+      <div class="project" style="height: <%= height+75 %>px"> 
         <img src="<%= project.image %>" class="projectImage" width="320" height="<%= height %>">
         <div class="mask" style="height: <%= height %>px">
           <h2><%= project.title %></h2>
           <p><%= truncate project.description %></p>
-          <p>
+          <p class="<%= project.youtube %>">
             <% project.tag_list.each do |tag| %>
               <a href="tag/<%= tag %>">
                 <span class="label label-primary" style="padding: 5px">#<%= tag %></span>
@@ -25,9 +37,21 @@
           </div>
         </div>
 
-        <div class="panel panel-info">
-          <div class="pull-left">
+        <div class="panel panel-info" style="padding:0;border:none">
+          <div class="panel-body">
             <span class="views"><%= project.view %> views</span>
+            <span class="comments">
+              <i class="material-icons" style="position:relative;top: 7px;">chat_bubble_outline</i> <%= project.comments.size %>
+            </span>
+            <span class="thumb">
+              <i class="material-icons" style="position:relative;top: 6px;">thumb_up</i> 13
+            </span>
+          </div>
+          <div class="panel-footer">
+            <img src="<%= project.user.thumbnail %>">
+            <span class="username">
+              <%= project.user.username %>
+            </span>
           </div>
         </div>
 
@@ -40,3 +64,4 @@
   </div>
 
 </div>
+r

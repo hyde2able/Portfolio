@@ -18,7 +18,8 @@
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
  *= require_tree .
-
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
  *= require_self
  *= require bootstrap-material-design
  *= require projects

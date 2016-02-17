@@ -7,6 +7,7 @@ gem 'sass-rails', '~> 5.0' # => Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0' # => Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.1.0' # => Use CoffeeScript for .coffee assets and views
 gem 'jquery-rails' # => Use jquery as the JavaScript library
+gem 'jquery-ui-rails'
 gem 'bootstrap-sass' # => bootstrap
 gem 'bootstrap-material-design' # => material design
 gem 'masonry-rails' # => masonry

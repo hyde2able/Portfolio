@@ -22,6 +22,7 @@ class Base < Grape::API
       rescue
         error!("404 NotFound", 404)
       end
+      error!("OK", 200)
     end
 
     desc "create Project"
@@ -31,11 +32,14 @@ class Base < Grape::API
     end
     post "/" do
       error!("400 BadRequest", 400) unless params[:title] && params[:description]
+      @user = User.take(1)
       Project.create!( {
         title: title,
         description: description,
+        user: @user,
         is_public: false
       })
+      error!("OK", 200)
     end
 
     desc "delete Project"
@@ -46,6 +50,7 @@ class Base < Grape::API
         error!("404 NotFound", 404)
       end
       @project.destroy
+      error!("OK", 200)
     end
   end
 

@@ -48576,8 +48576,8 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
 
 
 (function() {
-  $(".projects.new").ready(function() {
-    var image_complement, selectedType;
+  $(".projects.new, .projects.edit").ready(function() {
+    var image_complement, j, len, ref, selectedType, tag;
     selectedType = "url";
     $(".urlType").on("click", function() {
       selectedType = $(this).attr('data-class');
@@ -48593,6 +48593,19 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
         return $("#isYoutube").val(true);
       }
     });
+    $("#projectTags").tagit({
+      fieldName: "project[tag_list]",
+      singleField: true,
+      allowSpaces: true,
+      availableTags: gon.available_tags
+    });
+    if (gon.project_tags != null) {
+      ref = gon.project_tags;
+      for (j = 0, len = ref.length; j < len; j++) {
+        tag = ref[j];
+        $("#project-tags").tagit('createTag', tag);
+      }
+    }
     $("#projectUrl").on("change", function() {
       var url, v;
       if (selectedType === "url") {
@@ -48617,6 +48630,8 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
     };
   });
 
+  $(".projects.edit").ready(function() {});
+
   $(".projects.index").ready(function() {
     $(".projectsList").masonry({
       itemSelector: ".project",
@@ -48636,25 +48651,6 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
     return $(".link").on("click", function() {
       return $(this).find(".thisLink").toggle();
     });
-  });
-
-  $(".projects.new, .projects.edit").ready(function() {
-    var j, len, ref, results, tag;
-    $("#projectTags").tagit({
-      fieldName: "project[tag_list]",
-      singleField: true,
-      allowSpaces: true,
-      availableTags: gon.available_tags
-    });
-    if (gon.project_tags != null) {
-      ref = gon.project_tags;
-      results = [];
-      for (j = 0, len = ref.length; j < len; j++) {
-        tag = ref[j];
-        results.push($("#project-tags").tagit('createTag', tag));
-      }
-      return results;
-    }
   });
 
 }).call(this);
@@ -49161,6 +49157,10 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
   };
 
 })( window, jQuery );
+(function() {
+
+
+}).call(this);
 (function() {
 
 

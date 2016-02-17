@@ -198,19 +198,19 @@ body {
 }
 
 /* line 52, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
-.projects.new h1 {
+.projects.new h1, .projects.edit h1 {
   margin-bottom: 20px;
 }
 /* line 56, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
-.projects.new form .selected {
+.projects.new form .selected, .projects.edit form .selected {
   border-bottom: 2px solid #F06292;
 }
 /* line 59, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
-.projects.new form .urlType {
+.projects.new form .urlType, .projects.edit form .urlType {
   cursor: pointer;
 }
 /* line 62, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
-.projects.new form img {
+.projects.new form img, .projects.edit form img {
   height: 300px;
 }
 
@@ -237,12 +237,17 @@ body {
 }
 
 /* line 90, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.new .form-control:focus, .projects.edit .form-control:focus {
+  padding: 12px;
+}
+
+/* line 96, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList, .projects.tag .projectsList {
   margin: 0 auto;
 }
-/* line 92, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 98, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project, .projects.tag .projectsList .project {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   position: relative;
   background: #fff;
   overflow: hidden;
@@ -251,14 +256,14 @@ body {
   padding: 3px;
   border: 2px solid #ccc;
 }
-/* line 101, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 107, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project img, .projects.tag .projectsList .project img {
   display: block;
   position: relative;
   padding: 0;
   margin: 0;
 }
-/* line 107, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 113, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask, .projects.tag .projectsList .project .mask {
   width: 320px;
   position: absolute;
@@ -270,7 +275,7 @@ body {
   transition: .3s;
   opacity: 0;
 }
-/* line 117, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 123, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask h2, .projects.tag .projectsList .project .mask h2 {
   text-transform: uppercase;
   text-align: center;
@@ -283,7 +288,7 @@ body {
   color: #fff;
   opacity: 0;
 }
-/* line 130, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 136, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask p, .projects.tag .projectsList .project .mask p {
   font-size: 12px;
   position: relative;
@@ -292,18 +297,22 @@ body {
   color: #fff;
   opacity: 0;
 }
-/* line 138, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 144, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .mask p.true, .projects.tag .projectsList .project .mask p.true {
+  display: none;
+}
+/* line 147, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask a, .projects.tag .projectsList .project .mask a {
   text-align: center;
 }
-/* line 141, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 150, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask .moreLink, .projects.tag .projectsList .project .mask .moreLink {
   position: absolute;
-  bottom: 40px;
+  bottom: 45px;
   left: 85px;
   width: 150px;
 }
-/* line 147, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 156, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask .created_at, .projects.tag .projectsList .project .mask .created_at {
   position: absolute;
   bottom: 5px;
@@ -313,20 +322,20 @@ body {
   font-weight: bold;
   padding: 10px;
 }
-/* line 156, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 165, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask .link, .projects.tag .projectsList .project .mask .link {
   position: absolute;
   bottom: 5px;
   right: 5px;
 }
-/* line 160, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 169, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask .link i, .projects.tag .projectsList .project .mask .link i {
   padding: 5px;
   background: #fff;
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 166, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 175, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .mask .link .thisLink, .projects.tag .projectsList .project .mask .link .thisLink {
   padding: 5px;
   position: relative;
@@ -335,30 +344,59 @@ body {
   right: 0;
   display: none;
 }
-/* line 177, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 186, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project:hover .mask, .projects.tag .projectsList .project:hover .mask {
   opacity: 1;
 }
-/* line 180, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 189, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project:hover h2, .projects.index .projectsList .project:hover p, .projects.index .projectsList .project:hover a, .projects.tag .projectsList .project:hover h2, .projects.tag .projectsList .project:hover p, .projects.tag .projectsList .project:hover a {
   opacity: 1;
 }
-/* line 183, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
-.projects.index .projectsList .project:hover img, .projects.tag .projectsList .project:hover img {
+/* line 192, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project:hover img.projectImage, .projects.tag .projectsList .project:hover img.projectImage {
   opacity: 0;
 }
-/* line 187, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 196, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .views, .projects.tag .projectsList .project .views {
   font-weight: bold;
   font-size: 15px;
   color: #333;
-  position: relative;
-  top: 5px;
-  left: 4px;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
 }
-/* line 195, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
-.projects.index .projectsList .project .projectFotter, .projects.tag .projectsList .project .projectFotter {
-  height: 40px;
+/* line 204, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .comments, .projects.tag .projectsList .project .comments {
+  position: absolute;
+  font-weight: bold;
+  bottom: 40px;
+  right: 60px;
+}
+/* line 210, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .thumb, .projects.tag .projectsList .project .thumb {
+  position: absolute;
+  font-weight: bold;
+  color: #222;
+  bottom: 40px;
+  right: 5px;
+}
+/* line 218, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .panel-footer img, .projects.tag .projectsList .project .panel-footer img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 4px;
+  left: 10px;
+  border: 1px solid #fff;
+}
+/* line 227, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .panel-footer .username, .projects.tag .projectsList .project .panel-footer .username {
+  padding-left: 30px;
+  font-size: 12px;
+  color: #333;
+  position: relative;
+  bottom: 3px;
 }
 /* line 1, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
 body {
@@ -17714,7 +17752,7 @@ button.close {
 /* line 33, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
 body {
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 /* line 36, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
 body .main {
@@ -17725,23 +17763,55 @@ body a:hover {
   background: transparent;
 }
 
-/*
-@media screen and (max-width: 640px) {
-    body { width: 330px; margin: 0 auto;}
-}
-@media screen and (max-width: 960px) {
-    body { width: 700px; margin: 0 auto;}
-}
-@media screen and (max-width: 1280px) {
-    body { width: 1100px; margin: 0 auto;}
-}
-@media screen and (max-width: 1500px) {
-    body { width: 1290px; margin: 0 auto;}
-}*/
-/* line 61, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+/* line 47, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
 .header .nav img {
   height: 40px;
   width: auto;
   padding: 0;
   margin: 0;
+}
+/* line 54, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+.header .bg {
+  background-image: url(/assets/bg-2aa7847a138b30a0b270761270bd0bbbf29e5d696e304a0929f831d3e06518e2.jpg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+  position: relative;
+}
+/* line 63, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+.header .bg h3 {
+  color: #333;
+  font-weight: bold;
+}
+/* line 67, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+.header .bg p {
+  color: #333;
+  position: absolute;
+  right: 100px;
+  top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 75, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+.header .bg h2 {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #999999;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+}
+
+/* line 86, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+/* line 87, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/application.css.scss */
+.navbar-default .navbar-nav > li > a:hover {
+  color: #333;
 }

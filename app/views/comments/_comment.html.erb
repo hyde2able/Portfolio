@@ -1,0 +1,8 @@
+<p id="comment_<%= comment.id %>">
+    <%= comment.body %>
+    <% if user_signed_in? && current_user.id == comment.user_id %>
+        <%= link_to [comment.project, comment], class: "delete", data: {confirm: "本当に削除しますか?"}, remote: true, method: :delete do %>
+            <i class="material-icons">backspace</i>
+        <% end %>
+    <% end %>  
+</p>

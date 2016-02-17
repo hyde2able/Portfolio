@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  resources :projects
+
+
+  resources :projects do
+    resources :comments, only: [:create, :destroy]
+  end
 
   root "projects#index"
 
+  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"},
+    controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "users/registrations"}
 
-  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"}, controllers: { omniauth_callbacks: "omniauth_callbacks" }
-
-
-  namespace :api do
-    resources :projects
-  end
+  mount API::Base => '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

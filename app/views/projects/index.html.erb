@@ -11,6 +11,11 @@
         <div class="mask" style="height: <%= height %>px">
           <h2><%= project.title %></h2>
           <p><%= truncate project.description %></p>
+          <p>
+            <% project.tag_list.each do |tag| %>
+              <span class="label label-primary"><%= tag %></span>
+            <% end %>
+          </p>
           <%= link_to "More", project_path(project), class: "btn btn-raised btn-primary moreLink" %>
           <span class="created_at"><%= project.created_at.strftime("%Y.%m.%d") %></span>
           <div class="link">

@@ -36,6 +36,9 @@ gem 'kaminari'  # => ページング処理
 # => ページ単位でjsを管理
 #gem "bower-rails" 
 
+# API
+gem 'grape'
+
 gem 'jquery-rails' # => Use jquery as the JavaScript library
 #gem 'turbolinks'
 gem 'jbuilder', '~> 2.0' # =>  Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

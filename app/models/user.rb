@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true #, uniqueness: true
 
   has_many :projects, dependent: :nullify
+  has_many :comment, dependent: :nullify
+
+  acts_as_ordered_taggable_on :skills
 
   # お気に入り機能
   # has_many :favorites

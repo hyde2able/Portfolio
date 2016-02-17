@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :related_projects, only: [:new, :create, :show, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.page(params[:page]).per(10)
+    @projects = Project.where(is_public: true).page(params[:page]).per(30)
   end
 
   # GET /projects/1
@@ -13,15 +14,19 @@ class ProjectsController < ApplicationController
   def show
     @project.view += 1
     @project.save
+    @comments = @project.comments
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    gon.available_tags = Project.tags_on(:tags).pluck(:name)
   end
 
   # GET /projects/1/edit
   def edit
+    gon.available_tags = Project.tags_on(:tags).pluck(:name)
+    gon.project_tags = @project.tag_list
   end
 
   # POST /projects
@@ -30,6 +35,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.view = 0
     @project.good = 0
+    @project.is_public = true
     @project.user = current_user
 
     respond_to do |format|
@@ -75,6 +81,10 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:url, :title, :image, :youtube, :description)
+      params.require(:project).permit(:url, :title, :image, :youtube, :description, :tag_list)
+    end
+
+    def related_projects
+      @famous = Project.order(:view).limit(3)
     end
 end

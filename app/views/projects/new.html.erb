@@ -4,9 +4,16 @@
         } %>
 <% end %>
 
-<div class="jumbotron">
-    <h3 class="text-center">ポートフォリオを登録する</h3>
-    <%= render 'form' %>
-</div>
+<div class="row">
+    <div class="col-sm-12 col-md-offset-1 col-md-7">
+        <div class="jumbotron">
+            <h3 class="text-center">ポートフォリオを登録する</h3>
+            <%= render 'form' %>
+            <%= link_to 'Back', projects_path %>
+        </div>
+    </div>
 
-<%= link_to 'Back', projects_path %>
+    <div class="hidden-xs hidden-sm col-md-3">
+        <%= render "layouts/famous", famous: @famous %>
+    </div>
+</div>

@@ -5,19 +5,94 @@
 <% end %>
 
 
-<div class="jumbotron text-center">
-  <h2><%= @project.title %></h2>
-  <img src="<%= @project.image %>">
-  <p><%= @project.description %></p>
-  <p>URL: <%= @project.url %></p>
-  <p>VIEW: <%= @project.view %></p>
-  <p>GOOD: <%= @project.good %></p>
+<div class="row">
+  <div class="col-sm-12 col-md-offset-1 col-md-7">
 
-  <% if user_signed_in? && @project.user == current_user %>
-    <p>
-      <%= link_to 'Edit', edit_project_path(@project) %>
-      <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </p>         
-  <% end %>
-  <%= link_to 'Back', projects_path %>
+    <div class="jumbotron text-center">
+
+      <h2><%= @project.title %></h2>
+      <img src="<%= @project.image %>">
+
+      <div class="responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr><th width="100"></th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>URL</td>
+              <td><%= @project.url %></td>
+            </tr>
+              <td>VIEW</td>
+              <td><%= @project.view %></td>
+            <tr>
+              <td>GOOD</td>
+              <td><%= @project.good %></td>
+            </tr>
+            <tr>
+              <td>概要</td>
+              <td><%= @project.description %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="commentTable">
+        <h3>コメント一覧</h3>
+        <% @comments.each do |comment| %>
+          <%= render partial: "comments/comment", locals: { comment: comment } %>
+        <% end %>
+      </div>
+
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#commentForm">コメントする</button>
+
+      <div class="modal fade" id="commentForm" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">コメントをする</h4>
+            </div>
+
+            <div class="modal-body">
+              <%= form_for([@project, @project.comments.build], remote: true, class: "form-horizontal") do |f| %>
+                <div class="form-group">
+                  <label for="commentBody" class="control-label">コメント内容</label>
+                  <br>
+                  <%= f.text_area :body, class: "form-control", id: "commentBody", placeholder: "いいね！" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "追加する", class: "btn btn-default" %>
+                </div>              
+              <% end %>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <% if user_signed_in? && @project.user == current_user %>
+        <p>
+          <%= link_to 'Edit', edit_project_path(@project) %>
+          <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>         
+      <% end %>
+      <%= link_to 'Back', projects_path %>
+    </div>
+
+
+
+  </div>
+
+  <div class="hidden-xs hidden-sm col-md-3">
+    <%= render "layouts/famous", famous: @famous %>
+  </div>
+
 </div>

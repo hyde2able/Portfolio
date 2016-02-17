@@ -12,7 +12,6 @@
     </div>
   <% end %>
 
-
   <div class="yt_or_url col-md-offset-2 col-md-10">
     <h4>
       <span class="urlType selected" id="url" data-class="url">URL</span>
@@ -21,6 +20,8 @@
     </h4>
   </div>
 
+  <br>
+
   <div class="form-group">
     <label for="projectUrl" class="col-md-2 control-label">URL</label>
     <div class="col-md-10">
@@ -28,9 +29,7 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.hidden_field :youtube, id: "isYoutube", value: false %>
-  </div>
+  <%= f.hidden_field :youtube, id: "isYoutube", value: false %>
 
   <div class="form-group text-center">
     <img src="" id="projectImage" style="display:none">
@@ -44,12 +43,22 @@
     </div>
   </div>
 
+  <br>
+
   <div class="form-group">
     <label for="projectDescription" class="col-md-2 control-label">概要</label>
     <div class="col-md-10">
       <%= f.text_area :description, class: "form-control", id: "projectDescription", rows: 3, placeholder: "sample" %>
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="projectTags" class="col-md-2 control-label">タグ</label>
+    <div class="col-md-10">
+      <ul id="projectTags"></ul>
+    </div>
+  </div>
+
 
   <div class="form-group">
     <div class="col-md-10 col-md-offset-2">

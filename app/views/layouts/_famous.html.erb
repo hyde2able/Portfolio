@@ -1,0 +1,14 @@
+<div class="jumbotron famous">
+  <h3>人気なポートフォリオ</h3>
+  <ul>
+    <% famous.each do |project| %>
+      <li>
+        <img src="<%= project.image %>">
+        <div class="detail">
+            <h3><%= project.title %></h3>
+            <p><%= truncate project.description %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

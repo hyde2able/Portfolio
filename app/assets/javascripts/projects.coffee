@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(".projects.new").ready ->
+$(".projects.new, .projects.edit").ready ->
     selectedType = "url"
     $(".urlType").on "click", ->
         selectedType = $(this).attr('data-class')
@@ -18,7 +18,15 @@ $(".projects.new").ready ->
             $("#projectUrl").attr("placeholder", "https://www.youtube.com/watch?v=...")
             $("#isYoutube").val(true)
 
+    $("#projectTags").tagit
+        fieldName: "project[tag_list]",
+        singleField: true,
+        allowSpaces: true,
+        availableTags: gon.available_tags
 
+    if gon.project_tags?
+        for tag in gon.project_tags
+            $("#project-tags").tagit 'createTag', tag
 
     $("#projectUrl").on "change", ->
         if selectedType == "url"
@@ -38,7 +46,11 @@ $(".projects.new").ready ->
     image_complement = (url) ->
         $("#projectImage").attr("src", url)
         $("#projectImagePath").val(url)
-        $("#projectImage").show()     
+        $("#projectImage").show() 
+
+
+$(".projects.edit").ready ->
+
 
 
 $(".projects.index").ready ->
@@ -59,15 +71,4 @@ $(".projects.index").ready ->
 
     $(".link").on "click", ->
         $(this).find(".thisLink").toggle()
-
-$(".projects.new, .projects.edit").ready ->
-    $("#projectTags").tagit
-        fieldName: "project[tag_list]",
-        singleField: true,
-        allowSpaces: true,
-        availableTags: gon.available_tags
-
-    if gon.project_tags?
-        for tag in gon.project_tags
-            $("#project-tags").tagit 'createTag', tag
 

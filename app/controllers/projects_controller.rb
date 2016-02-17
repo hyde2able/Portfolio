@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
-  before_action :related_projects, only: [:new, :create, :show, :update, :destroy]
+  #before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :update]
+  before_action :famous_projects, only: [:new, :create, :edit, :show, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -91,7 +92,7 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:url, :title, :image, :youtube, :description, :tag_list)
     end
 
-    def related_projects
+    def famous_projects
       @famous = Project.order(:view).limit(3)
     end
 end

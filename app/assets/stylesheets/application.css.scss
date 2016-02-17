@@ -52,7 +52,34 @@ body {
     }
     .bg {
         background-image: image-url("bg.jpeg");
-        color: #fff;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 15px;
+        position: relative;
+        h3 {
+            color: #333;
+            font-weight: bold;
+        }
+        p {
+            color: #333;
+            position: absolute;
+            right: 100px;
+            top: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #999999;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+        }
     }
 }
 .navbar-default .navbar-nav > li > a {color: #fff;}

@@ -1,11 +1,8 @@
 <% content_for :header do %>
-    <div class="bg" style="background-image: url(<%= asset_path "bg.jpeg" %>);">
-      <h3>あなたのポートフォリオを乗せて</h3>
-      <p>評価を得て、その場でイシューを立てよう</p>
+    <div class="bg">
+      <h2>ポートフォリオ一覧</h2>
     </div>
 <% end %>
-
-<h2 class="text-center">ポートフォリオ一覧</h2>
 
 <div class="row" style="width: 100%;margin:0 auto">
   <div class="projectsList">
@@ -14,7 +11,7 @@
       <% if i == @rand %>
         <%= render "layouts/tag_cloud", tags: @tags %>
       <% end %>
-      
+
       <% height = (project.youtube) ? 180 : 300 %>
 
       <div class="project" style="height: <%= height+75 %>px"> 

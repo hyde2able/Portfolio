@@ -12,10 +12,12 @@
           <p><%= truncate project.description %></p>
           <p>
             <% project.tag_list.each do |tag| %>
-              <span class="label label-primary"><%= tag %></span>
+              <a href="tag/<%= tag %>">
+                <span class="label label-primary" style="padding: 5px">#<%= tag %></span>
+              </a>
             <% end %>
           </p>
-          <%= link_to "More", project_path(project), class: "btn btn-raised btn-primary moreLink" %>
+          <%= link_to "More", project_path(project), class: "btn btn-raised btn-success moreLink" %>
           <span class="created_at"><%= project.created_at.strftime("%Y.%m.%d") %></span>
           <div class="link">
             <i class="material-icons link" >link</i>
@@ -38,3 +40,8 @@
   </div>
 
 </div>
+
+
+= link_to evideos_path(tag: tag.name) do
+            span.evideo-tag
+              = tag.name

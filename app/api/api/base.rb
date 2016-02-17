@@ -17,7 +17,11 @@ class Base < Grape::API
 
     desc "Return a project"
     get "/:id" do
-      @project = Project.find(params[:id])
+      begin
+        @project = Project.find(params[:id])
+      rescue
+        error!("404 NotFound", 404)
+      end
     end
 
     desc "create Project"
@@ -39,7 +43,7 @@ class Base < Grape::API
       begin
         @project = Project.find(params[:id])
       rescue
-        error!("404 NotFound", 404) unless @project
+        error!("404 NotFound", 404)
       end
       @project.destroy
     end

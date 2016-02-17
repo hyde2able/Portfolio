@@ -9,6 +9,11 @@ class ProjectsController < ApplicationController
     @projects = Project.where(is_public: true).page(params[:page]).per(30)
   end
 
+  def tag
+    @projects = Project.tagged_with(params[:tag]).includes(:tags).order(created_at: :desc).page(params[:page]).per(30)
+    render :index
+  end
+
   # GET /projects/1
   # GET /projects/1.json
   def show

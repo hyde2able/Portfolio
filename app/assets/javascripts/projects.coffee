@@ -47,6 +47,7 @@ $(".projects.index").ready ->
         gutterWidth: 10,
         columnWidth: 320,
         isAnimated: true,
+        isFitWidth: true,
         animationOptions: {
             duration: 500,
             easing: 'swing'

@@ -20,9 +20,9 @@ class Base < Grape::API
       begin
         @project = Project.find(params[:id])
       rescue
-        error!("404 NotFound", 404)
+        error!("NotFound", 404)
       end
-      error!("OK", 200)
+      return {"status": 200, "message": "OK"}
     end
 
     desc "create Project"
@@ -31,7 +31,7 @@ class Base < Grape::API
       optional :description, type: String
     end
     post "/" do
-      error!("400 BadRequest", 400) unless params[:title] && params[:description]
+      error!("BadRequest", 400) unless params[:title] && params[:description]
       @project = Project.new(title: params[:title], description: params[:description], is_public: false)
       #error!("OK", 200)
       return {"status": 200, "message": "OK"}
@@ -42,11 +42,11 @@ class Base < Grape::API
       begin
         @project = Project.find(params[:id])
       rescue
-        error!("404 NotFound", 404)
+        error!("NotFound", 404)
       end
-      @project.destroy
-      return {"status": 200, "message": "OK"}
-      #error!("OK", 200)
+      if @project.destroy
+        return {"status": 200, "message": "OK"}
+      end
     end
   end
 

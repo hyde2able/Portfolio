@@ -2,7 +2,6 @@ module API
 class Base < Grape::API
   prefix "api"
   format :json
-
   helpers do
   end
 
@@ -13,7 +12,6 @@ class Base < Grape::API
     end
     get "/" do
       @projects = Project.where(is_public: true).page(params[:page]).per(30)
-
     end
 
     desc "Return a project"
@@ -23,7 +21,7 @@ class Base < Grape::API
       rescue
         error!("NotFound", 404)
       end
-      return format.json {status: 200, message: "OK" }
+      {"status": 200, "message": "OK" }
     end
 
     desc "create Project"
@@ -35,7 +33,7 @@ class Base < Grape::API
       error!("BadRequest", 400) unless params[:title] && params[:description]
       @project = Project.new(title: params[:title], description: params[:description], is_public: false)
       #error!("OK", 200)
-      return {"status": 200, "message": "OK"}
+      {"status": 200, "message": "OK" }
     end
 
     desc "delete Project"
@@ -46,7 +44,7 @@ class Base < Grape::API
         error!("NotFound", 404)
       end
       @project.destroy
-      return format.json {status: 200, message: "OK" }
+      {"status": 200, "message": "OK" }
     end
   end
 

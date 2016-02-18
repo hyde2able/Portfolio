@@ -18,15 +18,7 @@ $(".projects.new, .projects.edit").ready ->
             $("#projectUrl").attr("placeholder", "https://www.youtube.com/watch?v=...")
             $("#isYoutube").val(true)
 
-    $("#projectTags").tagit
-        fieldName: "project[tag_list]",
-        singleField: true,
-        allowSpaces: true,
-        availableTags: gon.available_tags
 
-    if gon.project_tags?
-        for tag in gon.project_tags
-            $("#project-tags").tagit 'createTag', tag
 
     $("#projectUrl").on "change", ->
         if selectedType == "url"
@@ -50,8 +42,15 @@ $(".projects.new, .projects.edit").ready ->
 
 
 $(".projects.edit").ready ->
+    $("#projectTags").tagit
+        fieldName: "project[tag_list]",
+        singleField: true,
+        allowSpaces: true,
+        availableTags: gon.available_tags
 
-
+    if gon.project_tags?
+        for tag in gon.project_tags
+            $("#projectTags").tagit "createTag", tag
 
 $(".projects.index").ready ->
     $(".projectsList").masonry
@@ -71,4 +70,11 @@ $(".projects.index").ready ->
 
     $(".link").on "click", ->
         $(this).find(".thisLink").toggle()
+
+$(".projects.new").ready ->
+    $("#projectTags").tagit
+        fieldName: "project[tag_list]",
+        singleField: true,
+        allowSpaces: true,
+        availableTags: gon.available_tags
 

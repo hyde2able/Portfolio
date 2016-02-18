@@ -22,7 +22,7 @@ class Base < Grape::API
         error!("NotFound", 404)
       end
       #{"status": 200, "message": "OK" }
-      status 200
+      {"statusCode": 200, "message": "OK"}
     end
 
     desc "create Project"
@@ -35,7 +35,7 @@ class Base < Grape::API
       @project = Project.new(title: params[:title], description: params[:description], is_public: false)
       #error!("OK", 200)
       #{"status": 200, "message": "200 OK" }
-      status 200
+      {"statusCode": 200, "message": "OK"}
     end
 
     desc "delete Project"
@@ -47,7 +47,7 @@ class Base < Grape::API
       end
       @project.destroy
       #{"status": 200, "message": "OK" }
-      status 200
+      {"statusCode": 200, "message": "OK"}
     end
   end
 

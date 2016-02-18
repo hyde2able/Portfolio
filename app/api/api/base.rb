@@ -21,7 +21,8 @@ class Base < Grape::API
       rescue
         error!("NotFound", 404)
       end
-      {"status": 200, "message": "OK" }
+      #{"status": 200, "message": "OK" }
+      status 200
     end
 
     desc "create Project"
@@ -33,7 +34,8 @@ class Base < Grape::API
       error!("BadRequest", 400) unless params[:title] && params[:description]
       @project = Project.new(title: params[:title], description: params[:description], is_public: false)
       #error!("OK", 200)
-      {"status": 200, "message": "OK" }
+      #{"status": 200, "message": "200 OK" }
+      status 200
     end
 
     desc "delete Project"
@@ -44,7 +46,8 @@ class Base < Grape::API
         error!("NotFound", 404)
       end
       @project.destroy
-      {"status": 200, "message": "OK" }
+      #{"status": 200, "message": "OK" }
+      status 200
     end
   end
 

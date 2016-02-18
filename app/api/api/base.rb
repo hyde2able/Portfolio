@@ -13,6 +13,7 @@ class Base < Grape::API
     end
     get "/" do
       @projects = Project.where(is_public: true).page(params[:page]).per(30)
+
     end
 
     desc "Return a project"
@@ -22,7 +23,7 @@ class Base < Grape::API
       rescue
         error!("NotFound", 404)
       end
-      return {"status": 200, "message": "OK"}
+      return {"status": 200, "message": "OK"} if @project
     end
 
     desc "create Project"
@@ -44,9 +45,8 @@ class Base < Grape::API
       rescue
         error!("NotFound", 404)
       end
-      if @project.destroy
-        return {"status": 200, "message": "OK"}
-      end
+      @project.destroy
+      return {"status": 200, "message": "OK"} if @project.frozen?
     end
   end
 

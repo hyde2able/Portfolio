@@ -1,4 +1,9 @@
 ja:
+  activerecord:
+    attributes:
+      project:
+        title: タイトル
+        description: 概要
   views:
     pagination:
       first: 先頭

@@ -1,12 +1,10 @@
 <%= form_for(@project, html: {:class => "form-horizontal clearfix"}) do |f| %>
 
   <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% @project.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
+    <div class="alert alert-warning">
+      <ul style="list-style-typ:none">
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>

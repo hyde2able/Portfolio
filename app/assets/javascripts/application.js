@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require select2
+//= require jquery.infinitescroll
 //= require tag-it
 //= require bootstrap-material-design
 //= require bootstrap-sprockets

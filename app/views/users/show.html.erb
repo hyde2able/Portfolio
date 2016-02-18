@@ -5,6 +5,10 @@
   } %>
 <% end %>
 
+<% if user_signed_in? && current_user.id == @user.id %>
+  <%= link_to "ポートフォリオをPDFで出力", user_path(@user, format: "pdf"), class: "btn btn-block btn-primary" %>
+<% end %>
+
 <div class="myPortfolio responsive">   
   <h2 class="text-center"><%= @user.username %>のポートフォリオ</h2>
   <table class="table">

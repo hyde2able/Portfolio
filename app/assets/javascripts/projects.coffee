@@ -71,6 +71,22 @@ $(".projects.index").ready ->
     $(".link").on "click", ->
         $(this).find(".thisLink").toggle()
 
+    $("#projects").infinitescroll
+        loading: {
+            img: "http://www.fastpic.jp/images.php?file=7260234218.gif",
+            msgText: "loading..."
+        }
+        navSelector: ".pagination" # selector for the paged navigation (it will be hidden)
+        nextSelector: ".pagination a[rel=next]" # selector for the NEXT link (to page 2)
+        itemSelector: "#projects .project" # selector for all items you'll retrieve
+    , (elem) ->
+        $this = $(elem).css({opacity: 0})
+        $this.animate({opacity: 1})
+        $(".projectsList").masonry "appended", $this, true
+
+
+
+
 $(".projects.new").ready ->
     $("#projectTags").tagit
         fieldName: "project[tag_list]",

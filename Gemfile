@@ -26,14 +26,6 @@ gem 'youtube_it', '~> 2.4.0'
 
 gem 'kaminari'  # => ページング処理
 
-# => CSS framework
-#gem 'therubyracer',  platforms: :ruby
-#gem 'less-rails'
-#gem 'twitter-bootstrap-rails'
-
-# => ページ単位でjsを管理
-#gem "bower-rails" 
-
 # API
 gem 'grape'
 

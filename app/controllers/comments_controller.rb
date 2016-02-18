@@ -7,6 +7,9 @@ class CommentsController < ApplicationController
     @project = Project.find(params[:project_id])
     @comment = @project.comments.new(comment_params)
     @comment.user_id = current_user.id
+
+    
+    
     if @comment.save
         render
     else

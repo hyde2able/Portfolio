@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(is_public: true).page(params[:page]).per(30)
+    @projects = Project.where(is_public: true).page(params[:page]).per(20)
     @tags = Project.tag_counts_on(:tags).order('count DESC').limit(10)
     @rand = rand(5) + 5 # 5 ~ 10
   end
@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
     @project.view += 1
     @project.save
     @comments = @project.comments
+    @disabled = (user_signed_in?) ? "" : "disabled"
   end
 
   # GET /projects/new

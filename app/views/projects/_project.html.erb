@@ -1,0 +1,42 @@
+<% height = (project.youtube) ? 180 : 300 %>
+
+<div class="project" style="height: <%= height+75 %>px" id="project_<%= project.id %>"> 
+  <img src="<%= project.image %>" class="projectImage" width="320" height="<%= height %>">
+  <div class="mask" style="height: <%= height %>px">
+    <h2><%= project.title %></h2>
+    <p><%= truncate project.description %></p>
+    <p class="<%= project.youtube %>">
+      <% project.tag_list.each do |tag| %>
+        <a href="tag/<%= tag %>">
+          <span class="label label-primary" style="padding: 5px">#<%= tag %></span>
+        </a>
+      <% end %>
+    </p>
+    <%= link_to "More", project_path(project), class: "btn btn-raised btn-success moreLink" %>
+    <span class="created_at"><%= project.created_at.strftime("%Y.%m.%d") %></span>
+    <div class="link">
+      <i class="material-icons link" >link</i>
+      <a href="<%= project.url %>" class="thisLink"><%= project.url %></a>
+    </div>
+  </div>
+
+  <div class="panel panel-info" style="padding:0;border:none">
+    <div class="panel-body">
+      <span class="views"><%= project.view %> views</span>
+      <span class="comments">
+        <i class="material-icons" style="position:relative;top: 7px;">chat_bubble_outline</i> <%= project.comments.size %>
+      </span>
+      <span class="thumb">
+        <%= render "good", project: project, count: project.good_projects.count.to_s %>
+      </span>
+
+    </div>
+    <div class="panel-footer">
+      <img src="<%= project.user.thumbnail %>">
+      <span class="username">
+        <%= project.user.username %>
+      </span>
+    </div>
+  </div>
+
+</div>

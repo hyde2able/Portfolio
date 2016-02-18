@@ -1,2 +1,30 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% content_for :header do %>
+    <div class="bg1">
+        <%= render "layouts/breadcrumb", breadcrumb: {
+            "ユーザ一覧": users_path
+        } %>
+      <h2>ユーザ一覧</h2>
+    </div>
+<% end %>
+
+
+
+<div class="responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>    
+                <th width="100">サムネイル</th>
+                <th>名前</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <td><img src="<%= user.thumbnail %>"></td>
+                    <td><%= link_to user.username, user_path(user) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

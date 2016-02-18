@@ -1,2 +1,52 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% content_for :header do %>
+  <%= render "layouts/breadcrumb", breadcrumb: {
+    "ユーザ一覧": users_path,
+    "#{@user.username}": user_path(@user)
+  } %>
+<% end %>
+
+<div class="myPortfolio responsive">   
+  <h2 class="text-center"><%= @user.username %>のポートフォリオ</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="320">イメージ</th>
+        <th>タイトル</th>
+        <th>概要</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.projects.each do |p| %>
+        <tr>
+          <th><img src="<%= p.image %>"></th>
+          <th><%= p.title %></th>
+          <th><%= p.description %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="myFavorite responsive">
+  <h2 class="text-center"><%= @user.username %>のいいね！したポートフォリオ</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="320">イメージ</th>
+        <th>タイトル</th>
+        <th>概要</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @favo.each do |p| %>
+        <tr>
+          <th><img src="<%= p.project.image %>"></th>
+          <th><%= p.project.title %></th>
+          <th><%= p.project.description %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

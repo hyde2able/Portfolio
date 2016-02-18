@@ -5,5 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favo = @user.good_projects
   end
 end

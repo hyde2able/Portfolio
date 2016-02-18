@@ -22,7 +22,9 @@
               <img src="<%= current_user.thumbnail %>" alt="thumbnail" style="margin-top: 5px;padding:0">
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+              <!-- <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li> -->
+              <li><%= link_to "ユーザ一覧", users_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>

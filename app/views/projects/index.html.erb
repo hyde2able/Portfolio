@@ -14,7 +14,7 @@
 
       <% height = (project.youtube) ? 180 : 300 %>
 
-      <div class="project" style="height: <%= height+75 %>px"> 
+      <div class="project" style="height: <%= height+75 %>px" id="project_<%= project.id %>"> 
         <img src="<%= project.image %>" class="projectImage" width="320" height="<%= height %>">
         <div class="mask" style="height: <%= height %>px">
           <h2><%= project.title %></h2>
@@ -41,8 +41,9 @@
               <i class="material-icons" style="position:relative;top: 7px;">chat_bubble_outline</i> <%= project.comments.size %>
             </span>
             <span class="thumb">
-              <i class="material-icons" style="position:relative;top: 6px;">thumb_up</i> 13
+              <%= render "good", project: project, count: project.good_projects.count.to_s %>
             </span>
+
           </div>
           <div class="panel-footer">
             <img src="<%= project.user.thumbnail %>">

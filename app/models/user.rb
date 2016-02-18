@@ -8,23 +8,10 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :nullify
   has_many :comment, dependent: :nullify
 
+  # いいね機能
+  has_many :good_projects
+
   acts_as_ordered_taggable_on :skills
-
-  # お気に入り機能
-  # has_many :favorites
-  # has_many :favorite_evideos, through: :favorites, source: :evideo
-
-  def favorite?(evideo)
-    evideos.find_by(evideo_id: evideo.id)
-  end
-  
-  def favorite!(evideo)
-    evideos.create(evideo_id: evideo.id)
-  end
-
-  def unfavorite!(evideo)
-    evideos.find_by(evideo_id: evideo.id).destroy
-  end
 
   #登録時にemailを不要とする
   def email_required?

@@ -31,7 +31,7 @@ class Base < Grape::API
     end
     post "/" do
       error!("BadRequest", 400) unless params[:title] && params[:description]
-      @project = Project.new(title: params[:title], description: params[:description], is_public: false)
+      @project = Project.new(title: params[:title], description: params[:description], url: "example.com",  is_public: false)
       {"statusCode": 200, "message": "OK"} if @project.save
     end
 

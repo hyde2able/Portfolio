@@ -1,0 +1,1 @@
+$("#project_" + <%= @project.id %>).find(".thumb").html("<%= j render 'projects/good', project: @project, count: @project.good_projects.count.to_s %>");

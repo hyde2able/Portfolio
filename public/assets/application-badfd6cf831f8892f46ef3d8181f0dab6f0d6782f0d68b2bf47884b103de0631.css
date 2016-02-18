@@ -379,8 +379,17 @@ body {
   color: #222;
   bottom: 40px;
   right: 5px;
+  color: #B2DFDB;
 }
-/* line 218, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 217, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .thumb a, .projects.tag .projectsList .project .thumb a {
+  text-decoration: none;
+}
+/* line 220, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+.projects.index .projectsList .project .thumb .favorited, .projects.tag .projectsList .project .thumb .favorited {
+  color: #C2185B;
+}
+/* line 225, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .panel-footer img, .projects.tag .projectsList .project .panel-footer img {
   height: 30px;
   width: 30px;
@@ -390,92 +399,13 @@ body {
   left: 10px;
   border: 1px solid #fff;
 }
-/* line 227, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
+/* line 234, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/projects.scss */
 .projects.index .projectsList .project .panel-footer .username, .projects.tag .projectsList .project .panel-footer .username {
   padding-left: 30px;
   font-size: 12px;
   color: #333;
   position: relative;
   bottom: 3px;
-}
-/* line 1, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-/* line 9, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-/* line 15, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-/* line 21, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-a {
-  color: #000;
-}
-/* line 24, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-a:visited {
-  color: #666;
-}
-/* line 28, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-a:hover {
-  color: #fff;
-  background-color: #000;
-}
-
-/* line 35, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-/* line 40, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-#notice {
-  color: green;
-}
-
-/* line 44, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-/* line 50, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-/* line 58, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
-}
-/* line 69, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/scaffolds.scss */
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
 }
 /*
 

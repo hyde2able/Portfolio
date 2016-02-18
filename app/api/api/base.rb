@@ -22,7 +22,7 @@ class Base < Grape::API
         error!("NotFound", 404)
       end
       #{"status": 200, "message": "OK" }
-      {"statusCode": 200, "message": "OK"}
+      {"statusCode"=> 200, "message"=> "OK"}
     end
 
     desc "create Project"
@@ -33,6 +33,7 @@ class Base < Grape::API
     post "/" do
       error!("BadRequest", 400) unless params[:title] && params[:description]
       @project = Project.new(title: params[:title], description: params[:description], is_public: false)
+      @project.save
       #error!("OK", 200)
       #{"status": 200, "message": "200 OK" }
       {"statusCode": 200, "message": "OK"}

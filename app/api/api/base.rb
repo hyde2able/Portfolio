@@ -23,7 +23,7 @@ class Base < Grape::API
       rescue
         error!("NotFound", 404)
       end
-      return {"status": 200, "message": "OK"} if @project
+      return format.json {status: 200, message: "OK" }
     end
 
     desc "create Project"
@@ -46,7 +46,7 @@ class Base < Grape::API
         error!("NotFound", 404)
       end
       @project.destroy
-      return {"status": 200, "message": "OK"} if @project.frozen?
+      return format.json {status: 200, message: "OK" }
     end
   end
 

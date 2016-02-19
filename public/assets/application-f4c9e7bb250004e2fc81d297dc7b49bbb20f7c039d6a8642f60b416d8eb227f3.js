@@ -50020,7 +50020,25 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
 
 }).call(this);
 (function() {
-
+  $(".users.show").ready(function() {
+    $(".myPortfolio").masonry({
+      itemSelector: ".portfolio",
+      gutterWidth: 10,
+      columnWidth: 320,
+      isAnimated: true,
+      isFitWidth: true,
+      animationOptions: {
+        duration: 500,
+        easing: "swing"
+      }
+    });
+    return $("#pdf").on("click", function() {
+      var html;
+      html = $(".myPortfolio").html();
+      $("[name=html]").val(html);
+      return true;
+    });
+  });
 
 }).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files

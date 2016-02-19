@@ -6,30 +6,13 @@
 <% end %>
 
 <% if user_signed_in? && current_user.id == @user.id %>
-  <%= link_to "ポートフォリオをPDFで出力", user_path(@user, format: "pdf"), class: "btn btn-block btn-primary" %>
+  <%= button_to "ポートフォリオをPDFで出力", user_path(@user, format: "pdf"), { params: {html: "aa"}, id: "pdf", class: "btn btn-block btn-primary"} %>
 <% end %>
 
-<div class="myPortfolio responsive">   
-  <h2 class="text-center"><%= @user.username %>のポートフォリオ</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="320">イメージ</th>
-        <th>タイトル</th>
-        <th>概要</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @user.projects.each do |p| %>
-        <tr>
-          <th><img src="<%= p.image %>"></th>
-          <th><%= p.title %></th>
-          <th><%= p.description %></th>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="myPortfolio">
+  <% @user.projects.each do |project| %>
+    <%= render "project", project: project %>
+  <% end %>
 </div>
 
 <div class="myFavorite responsive">

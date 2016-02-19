@@ -29,6 +29,12 @@ gem 'kaminari'  # => ページング処理
 # API
 gem 'grape'
 
+# For PDF generation
+gem 'pdfkit'       # wkhtmtopdfのラッパー
+gem 'wkhtmltopdf'  # HTMLをPDFに変換するツール
+
+
+
 gem 'jquery-rails' # => Use jquery as the JavaScript library
 #gem 'turbolinks'
 gem 'jbuilder', '~> 2.0' # =>  Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

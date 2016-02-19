@@ -1,0 +1,25 @@
+.portfolio {
+    margin-bottom: 20px;
+    padding: 0;
+}
+.portfolio img {
+    padding: 0;
+    margin: 0;
+    border: 2px solid #ddd;
+}
+.portfolio .footer {
+    background: #fff;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.portfolio .footer h2 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+.portfolio .footer p {
+    text-align: center;
+}

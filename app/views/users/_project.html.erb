@@ -1,0 +1,8 @@
+<% height = (project.youtube) ? 180 : 300 %>
+<div class="portfolio" style="height: <%= height + 10 %>">
+    <img src="<%= project.image %>" class="projectImage" width='320' height="<%= height %>">
+    <div class="panel panel-default footer">
+        <h2><%= project.title %></h2>
+        <p><%= project.description %></p>
+    </div> 
+</div>

@@ -7,18 +7,17 @@
 <div class="row" style="width: 100%;margin:0 auto">
   <% cache(["projects", @projects.map(&:id), @projects.maximum(:updated_at)]) do %>
     <div class="projectsList page" id="projects">
-      <%= render @projects %>
-<!--       <% @projects.each_with_index do |project, i| %>
+      <% @projects.each_with_index do |project, i| %>
 
         <% if i == @rand %>
           <%= render "layouts/tag_cloud", tags: @tags %>
         <% end %>
 
-        <% cache(project) do %>
+        <% cache project do %>
           <%= render "project", project: project %>
         <% end %>
-        
-      <% end %> -->
+
+      <% end %>
     </div>
 
     <div class="clearfix col-sm-12 text-center">

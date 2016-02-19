@@ -8,8 +8,11 @@ class CommentsController < ApplicationController
     @comment = @project.comments.new(comment_params)
     @comment.user_id = current_user.id
 
-    
-    
+    ngWords = ["死ね", "バカ", "アホ", "カス", "ボケ", "きもい"]
+    if ngWords.each do |ng|
+      @err = true if @comment.body.include?(ng)
+    end
+
     if @comment.save
         render
     else

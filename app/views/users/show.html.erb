@@ -29,7 +29,7 @@
     <tbody>
       <% @favo.each do |p| %>
         <tr>
-          <th><img src="<%= p.project.image %>"></th>
+          <th><%= lazy_image_tag p.project.image %></th>
           <th><%= p.project.title %></th>
           <th><%= p.project.description %></th>
         </tr>

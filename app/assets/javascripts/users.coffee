@@ -15,6 +15,7 @@ $(".users.show").ready ->
             easing: "swing"
         }
 
+    $("img.lazy").lazyload({ effect: 'fadeIn', threshold: '200' });
 
     $("#pdf").on "click", ->
         html = $(".myPortfolio").html()

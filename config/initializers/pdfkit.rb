@@ -1,5 +1,6 @@
 PDFKit.configure do |config|
   config.wkhtmltopdf = `which wkhtmltopdf`.to_s.strip
+  config.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf' if Rails.env.production?
   config.default_options = {
     encoding:                "UTF-8",  # エンコーディング
     page_size:               "A4",     # ページのサイズ

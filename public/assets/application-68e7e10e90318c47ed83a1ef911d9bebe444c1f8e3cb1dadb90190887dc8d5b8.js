@@ -50032,6 +50032,10 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
         easing: "swing"
       }
     });
+    $("img.lazy").lazyload({
+      effect: 'fadeIn',
+      threshold: '200'
+    });
     return $("#pdf").on("click", function() {
       var html;
       html = $(".myPortfolio").html();

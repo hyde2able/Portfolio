@@ -16,8 +16,9 @@ class UsersController < ApplicationController
         pdf = PDFKit.new(html, encoding: "UTF-8")
         pdf.stylesheets << "#{Rails.root}/app/assets/stylesheets/pdf.css"
 
-        send_data pdf.to_pdf, ffilename: "#{@user.username}のポートフォリオ.pdf", type: "application/pdf", disposition: "inline"
+        send_data pdf.to_pdf, filename: "#{@user.username}のポートフォリオ.pdf", type: "application/pdf", disposition: "inline"
       end
     end
   end
 end
+

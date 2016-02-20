@@ -32,6 +32,8 @@ gem 'grape'
 # For PDF generation
 gem 'pdfkit'       # wkhtmtopdfのラッパー
 gem 'wkhtmltopdf'  # HTMLをPDFに変換するツール
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 
 

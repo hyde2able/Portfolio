@@ -465,15 +465,16 @@ body {
   padding: 0;
   margin: 0;
   border: none;
+  width: 320px;
 }
-/* line 33, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/users.scss */
+/* line 34, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/users.scss */
 .users.show .myPortfolio .portfolio .footer h2 {
   padding: 0;
   text-align: center;
   margin: 0;
   font-size: 15px;
 }
-/* line 39, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/users.scss */
+/* line 40, /Users/sakaihidenobu/myApp/Portfolio/app/assets/stylesheets/users.scss */
 .users.show .myPortfolio .portfolio .footer p {
   text-align: center;
 }

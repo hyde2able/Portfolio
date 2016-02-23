@@ -1,6 +1,7 @@
 PDFKit.configure do |config|
+  #config.wkhtmltopdf = 'C:/wkhtmltopdf/wkhtmltopdf.exe'
   config.wkhtmltopdf = `which wkhtmltopdf`.to_s.strip
-  config.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf' if Rails.env.production?
+  #config.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf' if Rails.env.production?
   config.default_options = {
     encoding:                "UTF-8",  # エンコーディング
     page_size:               "A4",     # ページのサイズ
@@ -8,6 +9,9 @@ PDFKit.configure do |config|
     margin_right:            "1in",
     margin_bottom:           "0.25in",
     margin_left:             "1in",
-    disable_smart_shrinking: false
+    disable_smart_shrinking: false,
+    print_media_type:        true,
   }
+  config.root_url = "http://localhost" unless Rails.env.production?
+
 end

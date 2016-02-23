@@ -259,9 +259,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    wicked_pdf (1.0.4)
     wkhtmltopdf (0.1.2)
-    wkhtmltopdf-binary (0.9.9.3)
+    wkhtmltopdf-heroku (2.12.3.0)
     youtube_it (2.4.2)
       builder
       excon
@@ -309,9 +308,8 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-  wicked_pdf
   wkhtmltopdf
-  wkhtmltopdf-binary
+  wkhtmltopdf-heroku
   youtube_it (~> 2.4.0)
 
 BUNDLED WITH

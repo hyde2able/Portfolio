@@ -33,6 +33,9 @@ gem 'grape'
 gem 'pdfkit'       # wkhtmtopdfのラッパー
 gem 'wkhtmltopdf'  # HTMLをPDFに変換するツール
 gem 'wkhtmltopdf-heroku'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 
 gem 'jquery-rails' # => Use jquery as the JavaScript library

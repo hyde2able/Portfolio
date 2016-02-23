@@ -25,4 +25,8 @@
 
 $(document).on('ready page:load', function() {
   $.material.init();
+
+  $(".thumb.disabled").click(function() {
+    return false;
+  })
 });

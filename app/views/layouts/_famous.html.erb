@@ -3,7 +3,7 @@
   <ul>
     <% famous.each do |project| %>
       <li>
-        <img src="<%= project.image %>">
+        <%= lazy_image_tag project.image %>
         <div class="detail">
             <h3><%= project.title %></h3>
             <p><%= truncate project.description %></p>

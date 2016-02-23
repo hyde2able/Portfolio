@@ -95,6 +95,6 @@ class ProjectsController < ApplicationController
     end
 
     def famous_projects
-      @famous = Project.order(:view).limit(3)
+      @famous = Project.order('view desc').limit(3)
     end
 end

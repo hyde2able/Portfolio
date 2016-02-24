@@ -28,7 +28,7 @@
       </span>
       <span class="thumb">
         <% if current_user %>
-          <%= render "good", project: project, count: project.good_projects.count.to_s %>
+          <%= render "good", project: project, count: project.good_projects.count.to_s, user: current_user %>
         <% else %>
           <i class="material-icons" style="position:relative;top: 6px;">thumb_up</i> <%= project.good_projects.count %>
         <% end %>

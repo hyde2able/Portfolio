@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
     @projects = Project.where(is_public: true).order('created_at desc').page(params[:page]).per(20)
     @tags = Project.tag_counts_on(:tags).order('count DESC').limit(15)
     @rand = rand(5) + 5 # 5 ~ 10
-    @disabled = (user_signed_in?) ? "" : "disabled"
   end
 
   def tag

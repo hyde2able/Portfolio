@@ -2,12 +2,12 @@ class GoodProjectsController < ApplicationController
     #before_action :authenticate_user!, only: [:create, :destroy]
 
     def create
-        # unless user_signed_in?
-        #     @err = true
-        #     @message = "ログインしてください。"
-        #     render "good/create"
-        #     return
-        # end
+        unless user_signed_in?
+            @err = true
+            @message = "ログインしてください。"
+            render "good/create"
+            return
+        end
         @user = current_user
         @project = Project.find(params[:project_id])
         @good = @project.good_projects.new
@@ -20,16 +20,16 @@ class GoodProjectsController < ApplicationController
     end
 
     def destroy
-        # unless user_signed_in?
-        #     @err = true
-        #     @message = "ログインしてください。"
-        #     render "good/destroy"
-        #     return
-        # end
+        unless user_signed_in?
+            @err = true
+            @message = "ログインしてください。"
+            render "good/destroy"
+            return
+        end
         @user = current_user
         @project = Project.find(params[:project_id])
         @good = @project.good_projects.find_by(@user.id)
-        @good.destroy
+        @good.destroy if @good.present?
         render "good/destroy"
     end
 

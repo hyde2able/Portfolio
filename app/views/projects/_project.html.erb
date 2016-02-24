@@ -27,7 +27,11 @@
         <i class="material-icons" style="position:relative;top: 7px;">chat_bubble_outline</i> <%= project.comments.size %>
       </span>
       <span class="thumb">
-        <%= render "good", project: project, count: project.good_projects.count.to_s %>
+        <% if user_signed_in? %>
+          <%= render "good", project: project, count: project.good_projects.count.to_s %>
+        <% else %>
+          <i class="material-icons" style="position:relative;top: 6px;">thumb_up</i> <%= project.good_projects.count %>
+        <% end %>
       </span>
 
     </div>

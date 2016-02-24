@@ -28,8 +28,8 @@ class GoodProjectsController < ApplicationController
         end
         @user = current_user
         @project = Project.find(params[:project_id])
-        @good = @project.good_projects.find_by(@user.id)
-        @good.destroy if @good.present?
+        @good = @project.good_projects.find_by(user_id: @user.id)
+        @good.destroy
         render "good/destroy"
     end
 

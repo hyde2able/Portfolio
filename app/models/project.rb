@@ -10,6 +10,7 @@ class Project < ActiveRecord::Base
     has_many :good_projects
 
     acts_as_taggable
+    
     def favorited_by? user
         good_projects.find_by(user_id: user.id).present?
     end

@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(is_public: true).order('created_at desc').page(params[:page]).per(20)
+    @projects = Project.where(is_public: true).order(updated_at: :desc, created_at: :desc).page(params[:page]).per(20)
     @tags = Project.tag_counts_on(:tags).order('count DESC').limit(15)
     @rand = rand(5) + 5 # 5 ~ 10
   end

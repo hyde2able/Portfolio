@@ -1,4 +1,4 @@
-<% if user.favorite? project then %>
+<% if project.favorited_by? user then %>
     <%= link_to project_good_projects_path(project), method: :delete, remote: true, class: 'good' do %>
         <i class="material-icons favorited" style="position:relative;top: 6px;">thumb_up</i> <%= count %>
     <% end %>

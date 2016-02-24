@@ -34,7 +34,7 @@
     <div class="panel-footer">
       <img src="<%= project.user.thumbnail %>">
       <span class="username">
-        <%= project.user.username %>
+        <%= link_to project.user.username, user_path(project.user) %>
       </span>
     </div>
   </div>

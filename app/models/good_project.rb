@@ -1,6 +1,6 @@
 class GoodProject < ActiveRecord::Base
     belongs_to :user
-    belongs_to :project
+    belongs_to :project, touch: true
 
     validates :user, presence: true
     validates :project, presence: true

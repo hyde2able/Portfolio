@@ -8,7 +8,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.where(is_public: true).order(updated_at: :desc, created_at: :desc).page(params[:page]).per(20)
-    @tags = Project.tag_counts_on(:tags).order('count DESC').limit(15)
+    @tags = Rails.cache.fetch("tags_list", expires_in: 1.hour) do
+      Project.tag_counts_on(:tags).order('count DESC').limit(15)
+    end
     @rand = rand(5) + 5 # 5 ~ 10
   end
 

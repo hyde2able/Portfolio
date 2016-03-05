@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
   # いいね機能
   has_many :good_projects
 
-  acts_as_ordered_taggable_on :skills
-
   #登録時にemailを不要とする
   def email_required?
     false
